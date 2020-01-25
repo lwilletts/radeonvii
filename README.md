@@ -1,26 +1,32 @@
-# radeonvii
-Radeon VII scripts - alternative to using gui programs
+# Radeon VII
 
-#### radeonvii
+Radeon VII utilities: terminal script alternative to using GUI programs.
+
+#### radeon
 
 All in one control script for setting clocks, setting fan speed and setting fan
 curve on your Radeon VII.
 
 ```
 Usage:
-    radeonvii low               : Set lowest powerstate to default clocks.
-    radeonvii high              : Set lowest powerstate to max clocks.
-    radeonvii undervolt <value> : Manually set clockspeed in Mhz.
-    radeonvii info              : Show current clocks.
-    radeonvii fan               : Manually set fan speed to value [0 - 255] or auto.
-    radeonvii temp              : Auto fan control.
-    radeonvii help              : Show this help.
+    radeon clock <Mhz> <mv> : Manually set core clock speed at specific voltage.
+    radeon mem <Mhz>        : Manually set memory clock speed.
+    radeon power <Watts>    : Manually set the power limit.
+    radeon info             : Show current clocks.
+    radeon fan              : Manually set fan speed to value [0-255] or auto.
+    radeon temp             : Auto fan control.
+    radeon help             : Show this help.
 ```
 
-#### radeonvii.service
+You'll have to modify the fan curve within the case statement in the script,
+but I have set it by default to maximum fan RPM once the hotspot temperature is
+above 90 degrees.
 
-A simple service script example to launch `radeonvii` with systemd. Edit path
-as desired && copy to a systemd service directory.
+#### radeon.service
+
+A simple service script example to launch `radeon` with systemd. Modify to your
+preferred clock and voltage. Place in a preferred directory e.g.
+`/etc/systemd/system/`.
 
 #### lemongpu
 
